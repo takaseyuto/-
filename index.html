@@ -2,11 +2,38 @@
 <html lang="ja">
 <head>
         <meta charset="UTF-8">
-        <title>シミュレータ</title>
-        <script type="text/javascript" src="newton.js"></script>
+        <title>シミュレータ</title>      
 </head>
 <body>
-        <input type="range" id="inputSlideBar" min="0" max="100" step="1">
+        <div>
+                <label><input type="range" id="OSlider" min="-10" max="10" step="1"  > Oの値</label>
+        </div>
+        <p id="msg"></p>
+        <script>
+                function inputChange(event){
+                        msg.innerText = '音量は ' + OSlider.value + ' です';
+                }
+                let OSlider = document.getElementById('OSlider');
+                OSlider.addEventListener('input', inputChange);
+                let msg = document.getElementById('msg');
+        </script><br>
+
+        <div>
+                <input type="range" id="PSlider" min="-10" max="10" step="1" value="1">
+        </div>
+        <div>
+                <input type="range" id="QSlider" min="-10" max="10" step="1" value="1">
+        </div>
+        <div>
+                <input type="range" id="RSlider" min="-10" max="10" step="1" value="1">
+        </div>
+        
+        <div>
+                <input type="range" id="ASlider" min="-10" max="10" step="1" value="0">
+        </div>
+        <div>
+                <input type="range" id="BSlider" min="-10" max="10" step="1" value="0">
+        </div>
         <div id="contents">
                 <div id="panel">
                   <div>
@@ -14,31 +41,24 @@
                     <button type="button" id="clear" class="normal">clear</button>
                   </div>
                   <div>
-                    <p>試行回数</p>
-                    <button type="button" id="b02" class="size">1,000</button>
-                    <button type="button" id="b03" class="size">10,000</button>
-                    <button type="button" id="b04" class="size">100,000</button>
-                    <button type="button" id="b05" class="size">1,000,000</button>
-                  </div>
-                  <div>
-                    <p>次元</p>
-                    <button type="button" id="d02" class="size">2次元</button>
-                    <button type="button" id="d03" class="size">3次元</button>
-                    <button type="button" id="d04" class="size">4次元</button>
-                    <button type="button" id="d05" class="size">5次元</button>
+                    <p>EPS</p>
+                    <button type="button" id="b02" class="size">0.001</button>
+                    <button type="button" id="b03" class="size">0.0001</button>
+                    <button type="button" id="b04" class="size">0.00001</button>
+                    <button type="button" id="b05" class="size">0.000001</button>
                   </div>
                   <p id="theory"></p>
                   <p id="answer"></p>
                 </div>
                 <div id="main">
                   <div id="area1" class="area">
-                    <p>　円/球の様子</p>
+                    <p>円/球の様子</p>
                     <canvas class="myCanvas" id="graph1" width="460" height="460"></canvas>
                     <canvas class="myCanvas" id="graph1b" width="460" height="460"></canvas>
                   </div>
           
                   <div id="area2" class="area">
-                    <p>　計算された面積・体積</p>
+                    <p>計算された面積・体積</p>
                     <canvas class="myCanvas" id="graph2" width="460" height="240"></canvas>
                     <canvas class="myCanvas" id="graph2b" width="460" height="240"></canvas>
                   </div>
