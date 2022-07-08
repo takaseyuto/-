@@ -8,7 +8,7 @@ function main() {
     let a = 0.0,
     b = 1.0; // 初期値
 
-    console.log("x^3 + x - 1 の2分法による数値計算");
+    console.log("x^3 + x^2+x - 1 の2分法による数値計算");
     console.log("初期値 a=" + a);
     console.log("初期値 b=" + b);
     let x = nibun(a, b); // 解
@@ -39,7 +39,18 @@ function nibun(a, b) {
 * @return {number} Y座標
 */
 function func_y(x) {
-    return Math.pow(x, 3.0) + x - 1.0;
+    return Math.pow(x, 3.0) + Math.pow(x,2 ) + x- 1.0;
 }
 
 main();
+
+
+window.addEventListener('load', () => {
+    var element = document.querySelector( '#graph1' );
+    var context = element.getContext( '2d' );
+
+    context.beginPath();
+    context.moveTo( 0, 0 );
+    context.lineTo( 200, 400 );
+    context.stroke();
+    });

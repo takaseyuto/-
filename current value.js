@@ -19,3 +19,4 @@ function inputChange(event){
 window.onload = () =>{
     Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' です';
 }
+

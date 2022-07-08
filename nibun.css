@@ -1,0 +1,56 @@
+#panel {
+    /* float: left;
+    margin-right: auto; */
+    width: 300px;
+  }
+
+.OPQR{
+    width: 200px;
+}
+
+.AB{
+    width: 200px;
+}
+
+.normal {
+    width: 80px;
+    height: 60px;
+    font-size: 16pt;
+}
+
+.size{
+    
+    width: 85px;
+    height: 30px;
+    font-size: 12pt;
+}
+
+.area {
+    margin-top: 10px;
+    /* float: left; */
+    position: relative;
+  
+}
+
+#area1 {
+    background-color: #ffffd0;
+    width: 420px;
+    height: 460px;
+    
+}
+#area2 {
+    background-color: #c0ffd0;
+    width: 420px;
+    height: 460px;
+}
+
+.nibun{
+    
+    background-color:azure;
+}
+
+.newton{
+    
+    background-color:aqua;
+}
+
