@@ -2,57 +2,31 @@
 <html lang="ja">
 <head>
         <meta charset="UTF-8">
-        <title>シミュレータ</title>      
+        <title>シミュレータ</title>  
+         
 </head>
 <body>
         <div>
                 <label><input type="range" id="OSlider" min="-10" max="10" step="1" value="0" > Oの値</label>
         </div>
-        <p id="Os"></p>
-        <script>
-                function inputChange(event){
-                        Os.innerText =  OSlider.value + ' です';
-                }
-                let OSlider = document.getElementById('OSlider');
-                OSlider.addEventListener('input', inputChange);
-                let Os = document.getElementById('Os');
-        </script>
         <div>
                 <label><input type="range" id="PSlider" min="-10" max="10" step="1" value="0"> Pの値</label>
-        </div>
-        <p id="Ps"></p>
-        <script>
-                function inputChange(event){
-                        Ps.innerText = PSlider.value + ' です';
-                }
-                let PSlider = document.getElementById('PSlider');
-                PSlider.addEventListener('input', inputChange);
-                let Ps = document.getElementById('Ps');
-        </script>
+        </div>  
         <div>
                 <label><input type="range" id="QSlider" min="-10" max="10" step="1" value="0"> Qの値</label>
         </div>
-        <p id="Qs"></p>
-        <script>
-                function inputChange(event){
-                        Qs.innerText = QSlider.value + ' です';
-                }
-                let QSlider = document.getElementById('QSlider');
-                QSlider.addEventListener('input', inputChange);
-                let Qs = document.getElementById('Qs');
-        </script>
         <div>
                 <label><input type="range" id="RSlider" min="-10" max="10" step="1" value="0"> Rの値</label>
         </div>
+        <p id="Os"></p>
+        <p id="Ps"></p>
+        <p id="Qs"></p>
         <p id="Rs"></p>
         <script>
-                function inputChange(event){
-                        Rs.innerText =  RSlider.value + ' です';
-                }
-                let RSlider = document.getElementById('RSlider');
-                RSlider.addEventListener('input', inputChange);
-                let Rs = document.getElementById('Rs');
+                
         </script>
+        <script src="current value.js"></script>
+
         <div>
                 <label><input type="range" id="ASlider" min="-10" max="10" step="1" value="0"> Aの値</label>
         </div>
