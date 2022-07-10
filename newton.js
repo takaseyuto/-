@@ -1,33 +1,41 @@
-
-
-// 関数f(x)
-var f = function(x){
-    return x*x - 4.0;
-  };
+const EPS = 10**EPSSlider.value;
+/**
+ * ニュートン法による根の計算
+ */
+function newton() {
+    console.log("x^3 + x - 1 のニュートン法による数値計算");
   
-  // 導関数f'(x)
-  var df = function(x){
-    return 2.0*x;
-  };
+    let a = 1000.0;
+    let b;
+    console.log("初期値 a=" + a);
   
-  // ニュートン法
-  var newtonMethod = function(a, eps){
-      var i = 0;
-      while(i<1000){
-          i++;
-          // 漸化式
-          ah = a - f(a)/df(a)
-          // 収束条件(近似解の変化が十分小さい)を満たせば計算終了
-          if (Math.abs(ah - a) < eps) break;
-          //　近似解の更新
-          a = ah    
-      }  
-      return a;
-      
-  };
+    while (1) {
+      b = a - func_y(a) / func_z(a); // 式(1.9)
+      console.log(b);
+      if (Math.abs(a - b) < EPS) break;  // 収束判定
+      else a = b;
+    }
+    console.log("近似解 x = " + b);
+  }
   
+  /** 
+   * @param {number} x
+   * @return {number} 
+   */
+  function func_y(x) {//f(x)
+    return OSlider.value* Math.pow(x, 3.0)+ PSlider.value* Math.pow(x, 2.0) +QSlider.value* x + RSlider.value ;
+  }
   
-  window.onload=function () {
-      alert(newtonMethod(1.0, 0.0001)); // 2.0000000929222947
-  };
-
+  /**
+   * @param {number} x X座標
+   * @return {number} Y座標
+   */
+  function func_z(x) {//f'(x)
+    return 3*OSlider.value*Math.pow(x, 2.0)+ 2*PSlider.value*x +QSlider.value;
+  }
+  
+    let button2 = document.getElementById('start');
+    button2.addEventListener('click',() =>{
+        //newton();
+    })
+  

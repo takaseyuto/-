@@ -25,49 +25,29 @@
                         <p id="Ps"></p>
                         <p id="Qs"></p>
                         <p id="Rs"></p>
-                        <script src="current value.js"></script>
+                        
                         
 
                         <div>
-                                <label><input type="range" id="ASlider" min="-10" max="10" step="1" value="0" class="AB"> Aの値</label>
+                                <label><input type="range" id="EPSSlider" min="-20" max="0" step="1" value="-5" class="EPS"> EPSの値</label>
                         </div>
-                        <p id="As"></p>
-                        <script>
-                                function inputChange(event){
-                                        As.innerText =  ASlider.value + ' です';
-                                }
-                                let ASlider = document.getElementById('ASlider');
-                                ASlider.addEventListener('input', inputChange);
-                                let As = document.getElementById('As');
+                        <p id="EPS"></p>
+                        <script> 
+                        
                         </script>
-                        <div>
-                                <label><input type="range" id="BSlider" min="-10" max="10" step="1" value="0" class="AB"> Bの値</label>
-                        </div>
-                        <p id="Bs"></p>
-                        <script>
-                                function inputChange(event){
-                                        Bs.innerText =  BSlider.value + ' です';
-                                }
-                                let BSlider = document.getElementById('BSlider');
-                                BSlider.addEventListener('input', inputChange);
-                                let Bs = document.getElementById('Bs');
-                        </script>
-                
+                                
+                        <script src="current value.js"></script>
+
 
                   <div>
                     <button type="button" id="start" class="normal">start</button>
                     <button type="button" id="clear" class="normal">clear</button>
                   </div>
-                  <div>
-                    <p>EPS</p>
-                    <button type="button" id="b02" class="size">0.001</button>
-                    <button type="button" id="b03" class="size">0.0001</button>
-                    <button type="button" id="b04" class="size">0.00001</button>
-                    <button type="button" id="b05" class="size">0.000001</button>
-                  </div>
+                  <script src="nibun.js"></script>
                   <p id="theory"></p>
                   <p id="answer"></p>
-                  <script src="nibun.js"></script>
+                  
+                  
                 </div>
                 <div id="main">
                   <div id="area1" class="area">
@@ -79,7 +59,7 @@
                         can1.style.border = "3px solid";
                         
                     </script>
-                    <script src="nibun.js"></script>
+                    
                   </div>
                 </div>
                 <div id="main">
@@ -91,6 +71,7 @@
                         //canvasに枠線をつける。
                         can2.style.border = "3px solid";
                     </script>
+                    
                   </div>
                 </div>
               </div>
