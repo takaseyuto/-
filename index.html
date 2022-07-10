@@ -4,55 +4,56 @@
         <meta charset="UTF-8">
         <title>シミュレータ</title>  
         <link rel="stylesheet" href="nibun.css">
+        
 </head>
 <body>
-        <div id="panel">
-                <div>
-                        <label><input type="range" id="OSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Oの値</label>
-                </div>
-                <div>
-                        <label><input type="range" id="PSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Pの値</label>
-                </div>  
-                <div>
-                        <label><input type="range" id="QSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Qの値</label>
-                </div>
-                <div>
-                        <label><input type="range" id="RSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Rの値</label>
-                </div>
-                <p id="Os"></p>
-                <p id="Ps"></p>
-                <p id="Qs"></p>
-                <p id="Rs"></p>
-                <script src="current value.js"></script>
-
-                <div>
-                        <label><input type="range" id="ASlider" min="-10" max="10" step="1" value="0" class="AB"> Aの値</label>
-                </div>
-                <p id="As"></p>
-                <script>
-                        function inputChange(event){
-                                As.innerText =  ASlider.value + ' です';
-                        }
-                        let ASlider = document.getElementById('ASlider');
-                        ASlider.addEventListener('input', inputChange);
-                        let As = document.getElementById('As');
-                </script>
-                <div>
-                        <label><input type="range" id="BSlider" min="-10" max="10" step="1" value="0" class="AB"> Bの値</label>
-                </div>
-                <p id="Bs"></p>
-                <script>
-                        function inputChange(event){
-                                Bs.innerText =  BSlider.value + ' です';
-                        }
-                        let BSlider = document.getElementById('BSlider');
-                        BSlider.addEventListener('input', inputChange);
-                        let Bs = document.getElementById('Bs');
-                </script>
-        </div>
-
         <div id="contents">
                 <div id="panel">
+                        <div>
+                                <label><input type="range" id="OSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Oの値</label>
+                        </div>
+                        <div>
+                                <label><input type="range" id="PSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Pの値</label>
+                        </div>  
+                        <div>
+                                <label><input type="range" id="QSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Qの値</label>
+                        </div>
+                        <div>
+                                <label><input type="range" id="RSlider" min="-10" max="10" step="1" value="0" class="OPQR"> Rの値</label>
+                        </div>
+                        <p id="Os"></p>
+                        <p id="Ps"></p>
+                        <p id="Qs"></p>
+                        <p id="Rs"></p>
+                        <script src="current value.js"></script>
+                        
+
+                        <div>
+                                <label><input type="range" id="ASlider" min="-10" max="10" step="1" value="0" class="AB"> Aの値</label>
+                        </div>
+                        <p id="As"></p>
+                        <script>
+                                function inputChange(event){
+                                        As.innerText =  ASlider.value + ' です';
+                                }
+                                let ASlider = document.getElementById('ASlider');
+                                ASlider.addEventListener('input', inputChange);
+                                let As = document.getElementById('As');
+                        </script>
+                        <div>
+                                <label><input type="range" id="BSlider" min="-10" max="10" step="1" value="0" class="AB"> Bの値</label>
+                        </div>
+                        <p id="Bs"></p>
+                        <script>
+                                function inputChange(event){
+                                        Bs.innerText =  BSlider.value + ' です';
+                                }
+                                let BSlider = document.getElementById('BSlider');
+                                BSlider.addEventListener('input', inputChange);
+                                let Bs = document.getElementById('Bs');
+                        </script>
+                
+
                   <div>
                     <button type="button" id="start" class="normal">start</button>
                     <button type="button" id="clear" class="normal">clear</button>
@@ -66,6 +67,7 @@
                   </div>
                   <p id="theory"></p>
                   <p id="answer"></p>
+                  <script src="nibun.js"></script>
                 </div>
                 <div id="main">
                   <div id="area1" class="area">
@@ -79,7 +81,8 @@
                     </script>
                     <script src="nibun.js"></script>
                   </div>
-          
+                </div>
+                <div id="main">
                   <div id="area2" class="area">
                     <p>ニュートン法</p>
                     <canvas class="newton" id="graph2" width="400" height="400"></canvas>

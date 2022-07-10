@@ -1,3 +1,5 @@
+
+
 // 関数f(x)
 var f = function(x){
     return x*x - 4.0;

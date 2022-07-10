@@ -1,14 +1,36 @@
 
+let OSlider = document.getElementById('OSlider');
+OSlider.addEventListener('input', inputChange);
+let Os = document.getElementById('Os');
+let PSlider = document.getElementById('PSlider');
+PSlider.addEventListener('input', inputChange);
+let Ps = document.getElementById('Ps');
+let QSlider = document.getElementById('QSlider');
+QSlider.addEventListener('input', inputChange);
+let Qs = document.getElementById('Qs');
+let RSlider = document.getElementById('RSlider');
+RSlider.addEventListener('input', inputChange);
+let Rs = document.getElementById('Rs');
+
+window.onload = () =>{
+    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' です';
+}
+
+function inputChange(event){
+    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' です';
+}
+
+
 const EPS2 = 0.0001; // constは定数の定義
 
 /**
 * 2分法による根の計算
 */
 function main() {
-    let a = 0.0,
-    b = 1.0; // 初期値
+    let a = -100.0,
+    b = 100.0; // 初期値
 
-    console.log("x^3 + x^2+x - 1 の2分法による数値計算");
+    console.log(PSlider+QSlider+RSlider+"の2分法による数値計算");
     console.log("初期値 a=" + a);
     console.log("初期値 b=" + b);
     let x = nibun(a, b); // 解
@@ -39,10 +61,14 @@ function nibun(a, b) {
 * @return {number} Y座標
 */
 function func_y(x) {
-    return Math.pow(x, 3.0) + Math.pow(x,2 ) + x- 1.0;
+    return Math.pow(2, 3.0) + Math.pow(2,2 ) + 2- 2;
 }
 
-main();
+let button = document.getElementById('start');
+button.addEventListener('click',() =>{
+    main();
+})
+
 
 
 window.addEventListener('load', () => {

@@ -36,7 +36,7 @@
     background-color: #ffffd0;
     width: 420px;
     height: 460px;
-    
+
 }
 #area2 {
     background-color: #c0ffd0;
@@ -54,3 +54,6 @@
     background-color:aqua;
 }
 
+#contents {
+    display: flex;
+}
