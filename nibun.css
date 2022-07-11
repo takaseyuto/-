@@ -14,7 +14,7 @@
 
 .normal {
     width: 80px;
-    height: 60px;
+    height: 50px;
     font-size: 16pt;
 }
 
@@ -51,7 +51,7 @@
 
 .newton{
     
-    background-color:aqua;
+    background-color:azure;
 }
 
 #contents {

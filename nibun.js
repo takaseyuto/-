@@ -1,5 +1,4 @@
 const EPS = 10**EPSSlider.value;
-
 /**
 * 2分法による根の計算
 */
@@ -17,12 +16,22 @@ function nibunmain() {
 
 function nibun(a, b) {
     let c;
+    var element = document.querySelector( '#graph1' );
+        var abc = element.getContext( '2d' );
     do {
         c = (a + b) / 2.0; // 2分計算
         console.log(c);
         if (func_yn(c) <= 0) b = c; // 式(1.2)
         else a = c; // 式(1.3)
     } while (Math.abs(a - b) > EPS); // 収束判別　式(1.4)の変形
+        abc.beginPath();
+        abc.moveTo((a+20)*10,0);
+        abc.lineTo((a+20)*10,400);
+        abc.moveTo((b+20)*10,0);
+        abc.lineTo((b+20)*10,400);
+        abc.strokeStyle = '#FF0000';
+        abc.stroke()
+        abc.strokeStyle = '#000000';
     return c;
 }
 
@@ -31,17 +40,55 @@ function func_yn(x) {
     return OSlider.value*x*x*x+ PSlider.value*x*x +QSlider.value*x + RSlider.value*1;
 }
 
-let button1 = document.getElementById('start');
+let button1 = document.getElementById('start1');
 button1.addEventListener('click',() =>{
     nibunmain();
 })
+
+let draw1button = document.getElementById('draw1');
+draw1button.addEventListener('click',() =>{
+    draw1();
+})
+
+let clear1button = document.getElementById('clear1');
+  clear1button.addEventListener('click',() =>{
+    var element = document.querySelector( '#graph1' );
+    var context = element.getContext( '2d' );
+    context.clearRect(0,0,400,400);
+    context.beginPath();
+    context.moveTo( 0, 200 );
+    context.lineTo( 400, 200 );
+    context.moveTo( 200, 0 );
+    context.lineTo( 200, 400 );
+    context.stroke();
+  })
 
 window.addEventListener('load', () => {
     var element = document.querySelector( '#graph1' );
     var context = element.getContext( '2d' );
 
     context.beginPath();
-    context.moveTo( 0, 0 );
+    context.moveTo( 0, 200 );
+    context.lineTo( 400, 200 );
+    context.moveTo( 200, 0 );
     context.lineTo( 200, 400 );
     context.stroke();
     });
+
+function draw1(){
+    let x1=-20.0,y1=0,x2=0,y2=0;
+    var canvas = document.querySelector( '#graph1' );
+    var func_o = canvas.getContext('2d');
+    
+    for(let i=0;i<=400;i++){
+        y1 = OSlider.value*x1*x1*x1+ PSlider.value*x1*x1 +QSlider.value*x1 + RSlider.value*1;
+        x2 = x1+0.1;
+        y2 = OSlider.value*x2*x2*x2+ PSlider.value*x2*x2 +QSlider.value*x2 + RSlider.value*1;
+        func_o.beginPath();
+        func_o.moveTo( (x1+20)*10 , (y1-20)*(-10));
+        func_o.lineTo( (x2+20)*10 , (y2-20)*(-10));
+        func_o.stroke();
+        x1 = x2;
+    }
+}
+
