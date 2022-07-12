@@ -1,4 +1,4 @@
-let x;
+let x,ax;
 /**
  * ニュートン法による根の計算
  */
@@ -10,14 +10,18 @@ function newton() {
     var element = document.querySelector( '#graph2' );
     var Tangent = element.getContext( '2d' );
     while(1) {
+      ax = a;
       b = a - func_y(a) / func_z(a); // 式(1.9)
       console.log(b);
+      
       if (Math.abs(a - b) <= 10**EPSSlider.value) break;  // 収束判定
-      else a = b; 
+      else{
+        a = b; 
+      } 
     }
     console.log("ニュートン近似解 x = " + b);
     Tangent.beginPath();
-      Tangent.moveTo((a+20)*(10),(func_y(a)+20)*(-10));
+      Tangent.moveTo((ax+20)*(10),(func_y(a)+20)*(10));
       Tangent.lineTo((b+20)*10,200);
       Tangent.strokeStyle = '#FF0000';
       Tangent.stroke()
