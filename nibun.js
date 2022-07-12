@@ -1,10 +1,10 @@
-const EPS = 10**EPSSlider.value;
+//const EPS = 10**EPSSlider.value;
 /**
 * 2分法による根の計算
 */
 function nibunmain() {
-    let a = 1000.0,
-    b = -1000.0; // 初期値
+    let a = 100.0,
+    b = -100.0; // 初期値
 
     console.log(OSlider.value+PSlider.value+QSlider.value+RSlider.value+"の2分法による数値計算");
     console.log("初期値 a=" + a);
@@ -23,7 +23,7 @@ function nibun(a, b) {
         console.log(c);
         if (func_yn(c) <= 0) b = c; // 式(1.2)
         else a = c; // 式(1.3)
-    } while (Math.abs(a - b) > EPS); // 収束判別　式(1.4)の変形
+    } while (Math.abs(a - b) > 10**EPSSlider.value); // 収束判別　式(1.4)の変形
         abc.beginPath();
         abc.moveTo((a+20)*10,0);
         abc.lineTo((a+20)*10,400);
