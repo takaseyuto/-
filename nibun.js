@@ -25,6 +25,7 @@ function nibun(a, b) {
         abc.lineTo((a+20)*10,400);
         abc.strokeStyle = '#0000FF';
         abc.stroke();
+        abc.strokeStyle = '#000000';
         if (func_yn(c) <= 0){ 
             b = c; // 式(1.2)
             abc.beginPath();
