@@ -57,3 +57,13 @@
 #contents {
     display: flex;
 }
+
+.nitable{
+    background: #ffdada;
+    float: left;
+  }
+
+.netable{
+  background: #d9e2ff;
+  
+}

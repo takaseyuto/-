@@ -1,5 +1,4 @@
 
-
 let OSlider = document.getElementById('OSlider');
 OSlider.addEventListener('input', inputChange);
 let PSlider = document.getElementById('PSlider');

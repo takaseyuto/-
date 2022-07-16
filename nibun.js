@@ -1,7 +1,7 @@
-//const EPS = 10**EPSSlider.value;
-/**
-* 2分法による根の計算
-*/
+//2分法による根の計算
+let c=0;
+let i=0;
+
 function nibunmain() {
     let a = 100.0,
     b = -100.0; // 初期値
@@ -15,23 +15,30 @@ function nibunmain() {
 
 
 function nibun(a, b) {
-    let c;
     var element = document.querySelector( '#graph1' );
         var abc = element.getContext( '2d' );
     do {
         c = (a + b) / 2.0; // 2分計算
-        console.log(c);
-        if (func_yn(c) <= 0) b = c; // 式(1.2)
-        else a = c; // 式(1.3)
-    } while (Math.abs(a - b) > 10**EPSSlider.value); // 収束判別　式(1.4)の変形
+        nibunta(i,c);
         abc.beginPath();
         abc.moveTo((a+20)*10,0);
         abc.lineTo((a+20)*10,400);
-        abc.moveTo((b+20)*10,0);
-        abc.lineTo((b+20)*10,400);
-        abc.strokeStyle = '#FF0000';
-        abc.stroke()
-        abc.strokeStyle = '#000000';
+        abc.strokeStyle = '#0000FF';
+        abc.stroke();
+        if (func_yn(c) <= 0){ 
+            b = c; // 式(1.2)
+            abc.beginPath();
+            abc.moveTo((b+20)*10,0);
+            abc.lineTo((b+20)*10,400);
+            abc.strokeStyle = '#FF0000';
+            abc.stroke();
+            abc.strokeStyle = '#000000';
+            i++;
+        } else {
+            a = c;
+            i++;
+        } // 式(1.3)
+    } while (Math.abs(a - b) > 10**EPSSlider.value); // 収束判別　式(1.4)の変形 
     return c;
 }
 
@@ -47,35 +54,6 @@ button1.addEventListener('click',() =>{
 
 let draw1button = document.getElementById('draw1');
 draw1button.addEventListener('click',() =>{
-    draw1();
-})
-
-let clear1button = document.getElementById('clear1');
-  clear1button.addEventListener('click',() =>{
-    var element = document.querySelector( '#graph1' );
-    var context = element.getContext( '2d' );
-    context.clearRect(0,0,400,400);
-    context.beginPath();
-    context.moveTo( 0, 200 );
-    context.lineTo( 400, 200 );
-    context.moveTo( 200, 0 );
-    context.lineTo( 200, 400 );
-    context.stroke();
-  })
-
-window.addEventListener('load', () => {
-    var element = document.querySelector( '#graph1' );
-    var context = element.getContext( '2d' );
-
-    context.beginPath();
-    context.moveTo( 0, 200 );
-    context.lineTo( 400, 200 );
-    context.moveTo( 200, 0 );
-    context.lineTo( 200, 400 );
-    context.stroke();
-    });
-
-function draw1(){
     let x1=-20.0,y1=0,x2=0,y2=0;
     var canvas = document.querySelector( '#graph1' );
     var func_o = canvas.getContext('2d');
@@ -90,5 +68,31 @@ function draw1(){
         func_o.stroke();
         x1 = x2;
     }
-}
+})
 
+let clear1button = document.getElementById('clear1');
+    clear1button.addEventListener('click',() =>{
+        var element = document.querySelector( '#graph1' );
+        var context = element.getContext( '2d' );
+        context.clearRect(0,0,400,400);
+        context.beginPath();
+        context.moveTo( 0, 200 );
+        context.lineTo( 400, 200 );
+        context.moveTo( 200, 0 );
+        context.lineTo( 200, 400 );
+        context.stroke();
+        nibuntaclear(i);
+        i=0;
+  })
+
+window.addEventListener('load', () => {
+    var element = document.querySelector( '#graph1' );
+    var context = element.getContext( '2d' );
+
+    context.beginPath();
+    context.moveTo( 0, 200 );
+    context.lineTo( 400, 200 );
+    context.moveTo( 200, 0 );
+    context.lineTo( 200, 400 );
+    context.stroke();
+    });

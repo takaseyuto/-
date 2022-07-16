@@ -1,33 +1,35 @@
+//ニュートン法による根の計算
 let x,ax;
-/**
- * ニュートン法による根の計算
- */
+let v=0;
+let b;
+
 function newton() {
     console.log("のニュートン法による数値計算");
     let a = 100.0;
-    let b;
+    
     console.log("初期値 a=" + a);
     var element = document.querySelector( '#graph2' );
     var Tangent = element.getContext( '2d' );
     while(1) {
       ax = a;
       b = a - func_y(a) / func_z(a); // 式(1.9)
-      console.log(b);
-      
-      if (Math.abs(a - b) <= 10**EPSSlider.value) break;  // 収束判定
-      else{
-        a = b; 
-      } 
-    }
-    console.log("ニュートン近似解 x = " + b);
-    Tangent.beginPath();
-      Tangent.moveTo((ax+20)*(10),(func_y(a)+20)*(10));
+      newtonta(v,b)
+      Tangent.beginPath();
+      Tangent.moveTo((ax+20)*(10),(func_y(a)-20)*(-10));
       Tangent.lineTo((b+20)*10,200);
       Tangent.strokeStyle = '#FF0000';
       Tangent.stroke()
       Tangent.strokeStyle = '#000000';
-    //let beta = func_z(a)*a + func_y(a);
-    //let yd = func_z(a)*20+beta;//x to y no zahyou deta^^
+      Tangent.lineWidth = 1;
+      if (Math.abs(a - b) <= 10**EPSSlider.value) {
+        v++
+        break;  //収束判定
+      }else{
+        a = b; 
+        v++;
+      } 
+    }
+    console.log("ニュートン近似解 x = " + b);
   }
   
   function func_y(x) {//f(x)
@@ -45,36 +47,7 @@ function newton() {
 
   let draw2button = document.getElementById('draw2');
   draw2button.addEventListener('click',() =>{
-    draw2();
-  })
-
-  let clear2button = document.getElementById('clear2');
-  clear2button.addEventListener('click',() =>{
-    var element = document.querySelector( '#graph2' );
-    var context = element.getContext( '2d' );
-    context.clearRect(0,0,400,400);
-    context.beginPath();
-    context.moveTo( 0, 200 );
-    context.lineTo( 400, 200 );
-    context.moveTo( 200, 0 );
-    context.lineTo( 200, 400 );
-    context.stroke();
-  })
-  
-  window.addEventListener('load', () => {
-    var element = document.querySelector( '#graph2' );
-    var context = element.getContext( '2d' );
-
-    context.beginPath();
-    context.moveTo( 0, 200 );
-    context.lineTo( 400, 200 );
-    context.moveTo( 200, 0 );
-    context.lineTo( 200, 400 );
-    context.stroke();
-    });
-
-    function draw2(){
-      let x1=-20.0,y1=0,x2=0,y2=0;
+    let x1=-20.0,y1=0,x2=0,y2=0;
       var canvas = document.querySelector( '#graph2' );
       var func_o = canvas.getContext('2d');
       
@@ -88,4 +61,31 @@ function newton() {
           func_o.stroke();
           x1 = x2;
       }
-  }
+  })
+
+  let clear2button = document.getElementById('clear2');
+  clear2button.addEventListener('click',() =>{
+    var element = document.querySelector( '#graph2' );
+    var context = element.getContext( '2d' );
+    context.clearRect(0,0,400,400);
+    context.beginPath();
+    context.moveTo( 0, 200 );
+    context.lineTo( 400, 200 );
+    context.moveTo( 200, 0 );
+    context.lineTo( 200, 400 );
+    context.stroke();
+    newtontaclear(v);
+    v=0;
+  })
+  
+  window.addEventListener('load', () => {
+    var element = document.querySelector( '#graph2' );
+    var context = element.getContext( '2d' );
+
+    context.beginPath();
+    context.moveTo( 0, 200 );
+    context.lineTo( 400, 200 );
+    context.moveTo( 200, 0 );
+    context.lineTo( 200, 400 );
+    context.stroke();
+    });
