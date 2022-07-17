@@ -5,10 +5,6 @@ let i=0;
 function nibunmain() {
     let a = 100.0,
     b = -100.0; // 初期値
-
-    console.log(OSlider.value+PSlider.value+QSlider.value+RSlider.value+"の2分法による数値計算");
-    console.log("初期値 a=" + a);
-    console.log("初期値 b=" + b);
     let x = nibun(a, b); // 解
     console.log("二分法近似解 x = " + x);
 }

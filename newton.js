@@ -4,10 +4,7 @@ let v=0;
 let b;
 
 function newton() {
-    console.log("のニュートン法による数値計算");
     let a = 100.0;
-    
-    console.log("初期値 a=" + a);
     var element = document.querySelector( '#graph2' );
     var Tangent = element.getContext( '2d' );
     while(1) {
