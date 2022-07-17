@@ -3,8 +3,8 @@ let c=0;
 let i=0;
 
 function nibunmain() {
-    let a = 100.0,
-    b = -100.0; // 初期値
+    let a = -100.0,
+    b = 100.0; // 初期値
     let x = nibun(a, b); // 解
     console.log("二分法近似解 x = " + x);
 }
@@ -22,8 +22,8 @@ function nibun(a, b) {
         abc.strokeStyle = '#0000FF';
         abc.stroke();
         abc.strokeStyle = '#000000';
-        if (func_yn(c) <= 0){ 
-            b = c; // 式(1.2)
+        if (Math.sign(func_yn(c)) == Math.sign(func_yn(a))){ 
+            a = c; // 式(1.2)
             abc.beginPath();
             abc.moveTo((b+20)*10,0);
             abc.lineTo((b+20)*10,400);
@@ -32,7 +32,7 @@ function nibun(a, b) {
             abc.strokeStyle = '#000000';
             i++;
         } else {
-            a = c;
+            b = c;
             i++;
         } // 式(1.3)
     } while (Math.abs(a - b) > 10**EPSSlider.value); // 収束判別　式(1.4)の変形 
