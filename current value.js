@@ -14,11 +14,11 @@ EPSSlider.addEventListener('input', inputChange);
 let eps = document.getElementById('eps');
 
 window.onload = () =>{
-    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' です';
-    eps.innerText = 10**EPSSlider.value + ' です';
+    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' の解を求める';
+    eps.innerText = '差が'+10**EPSSlider.value + ' 以下になったら計算を終了';
   }
 
 function inputChange(event){
-    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' です';
-    eps.innerText =  10**EPSSlider.value + ' です';
+    Rs.innerText = 'y='+OSlider.value+'x^3 +'+PSlider.value+'x^2 +'+QSlider.value+'x +'+ RSlider.value + ' の解を求める';
+    eps.innerText = '差が'+ 10**EPSSlider.value + ' 以下になったら計算を終了';
 }
