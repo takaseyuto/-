@@ -19,7 +19,7 @@ function nibun(a, b) {
         abc.beginPath();
         abc.moveTo((a+20)*10,0);
         abc.lineTo((a+20)*10,400);
-        abc.strokeStyle = '#FF0000-';
+        abc.strokeStyle = '#FF0000';
         abc.stroke();
         abc.strokeStyle = '#000000';
         if (Math.sign(func_yn(c)) == Math.sign(func_yn(a))){ 
