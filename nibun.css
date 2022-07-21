@@ -1,6 +1,6 @@
 #panel {
     width: 300px;
-  }
+}
 
 .OPQR{
     width: 200px;
@@ -24,17 +24,16 @@
 
 .area {
     margin-top: 10px;
-    /* float: left; */
     position: relative;
 }
 
 #area1 {
-    background-color: #ffffd0;
+    background: #ffffd0;
     width: 420px;
     height: 460px;
 }
 #area2 {
-    background-color: #c0ffd0;
+    background: #c0ffd0;
     width: 420px;
     height: 460px;
 }
@@ -54,7 +53,7 @@
 .nitable{
     background: #ffdada;
     float: left;
-  }
+}
 
 .netable{
   background: #d9e2ff;
